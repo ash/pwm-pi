@@ -1,11 +1,11 @@
 #include <bcm2835.h>
 #include <stdio.h>
 
-const int pin = 18;
-const int channel = 0;
+const int pin = 19;
+const int channel = 1;
 const int divisor = 1024;
-const int range = 1000;
-const int data = 300;
+const int range = 300;
+const int data = 50;
 
 int main() {
     if (!bcm2835_init())

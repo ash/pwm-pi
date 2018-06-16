@@ -7,3 +7,5 @@
 3.py - Software PWM using the RPi.GPIO library
 
 hyst.cpp - Tesging internal hysteresisis of the GPIO inputs
+
+count.cpp - Measuring AC wall power frequency

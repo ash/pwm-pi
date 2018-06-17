@@ -9,3 +9,5 @@ soft-pwm.py - Software PWM using the RPi.GPIO library
 hysteresis.cpp - Tesging internal hysteresisis of the GPIO inputs
 
 frequency.cpp - Measuring AC wall power frequency
+
+led-dimmer.cpp - A LED dimmer controlled by hardware PWM output

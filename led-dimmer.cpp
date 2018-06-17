@@ -1,6 +1,5 @@
 #include <bcm2835.h>
-
-#include <iostream>
+//#include <iostream>
 
 // Approximate output frequency is 300 Hz
 
@@ -13,6 +12,18 @@ int pwm_data = 1;
 
 const int in1 = 26;
 const int in2 = 19;
+
+int delta() {
+    if (pwm_data < 15) return 1;
+    if (pwm_data < 50) return 3;
+    return 10;
+}
+
+void delay_and_set() {
+    bcm2835_delay(100);
+    bcm2835_pwm_set_data(pwm_channel, pwm_data);
+    //std::cout << pwm_data << std::endl;    
+}
 
 int main() {
     if (!bcm2835_init())
@@ -34,19 +45,19 @@ int main() {
     while (1) {
         int lev1 = bcm2835_gpio_lev(in1);
         if (!lev1) {
-            if (--pwm_data < 0) pwm_data = 0;
-            bcm2835_delay(50);
-            bcm2835_pwm_set_data(pwm_channel, pwm_data);
-            std::cout << pwm_data << std::endl;
+            pwm_data -= delta();
+            if (pwm_data < 0) pwm_data = 0;
+
+            delay_and_set();
             continue;
         }
 
         int lev2 = bcm2835_gpio_lev(in2);
         if (!lev2) {
-            if (++pwm_data > pwm_range) pwm_data = pwm_range;
-            bcm2835_delay(50);
-            bcm2835_pwm_set_data(pwm_channel, pwm_data);
-            std::cout << pwm_data << std::endl;
+            pwm_data += delta();
+            if (pwm_data > pwm_range) pwm_data = pwm_range;
+
+            delay_and_set();
         }
     }
 

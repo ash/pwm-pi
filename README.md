@@ -1,11 +1,11 @@
 # pwm-pi
 
-1.cpp - Hardware PWM on Raspberry Pi; channel PWM0
+pwm0.cpp - Hardware PWM on Raspberry Pi; channel PWM0
 
-2.cpp - Hardware PWM on Raspberry Pi; channel PWM1
+pwm1.cpp - Hardware PWM on Raspberry Pi; channel PWM1
 
-3.py - Software PWM using the RPi.GPIO library
+soft-pwm.py - Software PWM using the RPi.GPIO library
 
-hyst.cpp - Tesging internal hysteresisis of the GPIO inputs
+hysteresis.cpp - Tesging internal hysteresisis of the GPIO inputs
 
-count.cpp - Measuring AC wall power frequency
+frequency.cpp - Measuring AC wall power frequency

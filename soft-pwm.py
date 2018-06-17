@@ -7,7 +7,7 @@ j_pin = 12 # Note! This is the number of the phisical pin that correspond to GPI
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(j_pin, GPIO.OUT)
 
-p = GPIO.PWM(j_pin, 18750) # Frequency in Hz
+p = GPIO.PWM(j_pin, 500) # Frequency in Hz
 p.start(30) # 30% PWM
 
 input('Press ENTER to stop')
